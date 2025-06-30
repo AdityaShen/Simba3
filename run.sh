@@ -2,13 +2,8 @@
 
 clear
 
-echo -e "\033[1;33m-----------------------------------------------\033[0m"
-echo -e "             \033[1;36mscrcpy-desktop\033[0m"
-echo -e "\033[1;33m-----------------------------------------------\033[0m"
-echo -e "    \033[1;34mhttps://github.com/serifpersia/scrcpy-desktop\033[0m"
-echo -e "\033[1;33m-----------------------------------------------\033[0m"
-echo
-echo -e "\033[1;32mStarting scrcpy desktop...\033[0m"
+
+echo -e "\033[1;32mStarting Simba...\033[0m"
 echo
 
 echo -e "\033[1;33mInstalling dependencies with npm install...\033[0m"
@@ -54,6 +49,6 @@ fi
 
 echo
 echo -e "\033[1;32mAll commands executed successfully!\033[0m"
-echo -e "\033[1;33mscrcpy desktop is now running.\033[0m"
+echo -e "\033[1;33mSimba is now running.\033[0m"
 read -p "Press Enter to continue..."
 exit 0

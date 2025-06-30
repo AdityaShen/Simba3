@@ -4,22 +4,19 @@ const C = require('./constants');
 const { log } = require('./logger');
 const { checkAdbAvailability } = require('./adbService');
 const { createWebSocketServer } = require('./websocketHandlers');
-const { setupQrPairingRoutes, createQrWebSocketServer, resetQrSession } = require('./qrPairingService');
 const sessionManager = require('./scrcpySession');
 
 async function start() {
-    let httpServer, mainWss, qrWss;
+    let httpServer, mainWss;
 	try {
 		await checkAdbAvailability();
-        resetQrSession();
 
 		mainWss = createWebSocketServer();
-		qrWss = createQrWebSocketServer();
 
 		const app = express();
 		app.use(express.json());
 		app.use(express.static(path.resolve(__dirname, '../public/dist')));
-		setupQrPairingRoutes(app);
+		
 
 		httpServer = app.listen(C.HTTP_PORT, () => {
 			log(C.LogLevel.INFO, `[System] HTTP server listening on port ${C.HTTP_PORT}`);
@@ -32,11 +29,6 @@ async function start() {
 
         const gracefulShutdownHandler = async () => {
             log(C.LogLevel.INFO, '[System] Initiating graceful shutdown...');
-            if (qrWss) {
-                log(C.LogLevel.INFO, '[System] Closing QR WebSocket server...');
-                await new Promise(resolve => qrWss.close(resolve));
-                log(C.LogLevel.INFO, '[System] QR WebSocket server closed.');
-            }
             const activeSessions = Array.from(sessionManager.sessions.keys());
             log(C.LogLevel.INFO, `[System] Cleaning up ${activeSessions.length} active sessions...`);
  		    await Promise.allSettled(activeSessions.map(scid => sessionManager.cleanupSession(scid, new Map())));

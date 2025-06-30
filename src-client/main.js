@@ -9,7 +9,6 @@ import { closeAudio } from './services/audioPlaybackService.js';
 
 import { initSidebarControls } from './ui/sidebarControls.js';
 import { initTaskbarControls } from './ui/taskbarControls.js';
-import { initModals } from './ui/modals.js';
 import { initAppDrawer } from './ui/appDrawer.js';
 import { initHeaderControls } from './ui/headerControls.js';
 
@@ -19,14 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderControls();
     initSidebarControls();
     initTaskbarControls();
-    initModals();
     initAppDrawer();
 
     initInputService();
 
     initializeWebSocket();
 
-    appendLog('Scrcpy Desktop Client Initialized.');
+    appendLog('Simba Client Initialized.');
 
     window.addEventListener('beforeunload', () => {
         if (globalState.isRunning || (globalState.ws && globalState.ws.readyState === WebSocket.OPEN)) {

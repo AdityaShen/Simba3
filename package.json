@@ -1,5 +1,5 @@
 {
-  "name": "scrcpy-desktop",
+  "name": "simba",
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +11,8 @@
     "clean": "rimraf ./public/dist ./public/dev-dist ./.parcel-cache",
     "rebuild": "npm run build"
   },
-  "keywords": [],
-  "author": "serifpersia",
-  "license": "MIT",
-  "description": "Web application for scrcpy screen and audio streaming.",
+  
+  "description": "Application for streaming and controlling Android devices from desktop.",
   "dependencies": {
     "@devicefarmer/adbkit": "^3.3.8",
     "broadway-player": "^0.1.1",
@@ -23,7 +21,6 @@
     "h264-converter": "^0.1.4",
     "nanoid": "^5.1.5",
     "node-dns-sd": "^1.0.1",
-    "qrcode": "^1.5.4",
     "ws": "^8.18.1"
   },
   "devDependencies": {

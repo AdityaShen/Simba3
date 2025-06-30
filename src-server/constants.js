@@ -6,8 +6,6 @@ const HTTP_PORT = 8000;
 const SERVER_JAR_PATH = path.resolve(__dirname, '../public/vendor/Genymobile/scrcpy-server/scrcpy-server-v3.2');
 const SERVER_DEVICE_PATH = '/data/local/tmp/scrcpy-server.jar';
 const SCRCPY_VERSION = '3.2';
-const WSS_QR_PORT = 3001;
-
 const LogLevel = {
     DEBUG: 0,
     INFO: 1,
@@ -84,7 +82,6 @@ module.exports = {
     SERVER_JAR_PATH,
     SERVER_DEVICE_PATH,
     SCRCPY_VERSION,
-    WSS_QR_PORT,
     LogLevel,
     CURRENT_LOG_LEVEL,
     BASE_SCRCPY_OPTIONS,

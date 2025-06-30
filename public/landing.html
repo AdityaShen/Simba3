@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Connected Devices</title>
+ <link rel="stylesheet" href="style.css" />
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     padding: 1rem;
+     background-color: #f5f5f5;
+   }
+   h1 {
+     text-align: center;
+     margin-bottom: 2rem;
+   }
+   .grid-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+     gap: 1.5rem;
+     padding: 0 1rem;
+   }
+   .device-card {
+     background-color: #fff;
+     border-radius: 8px;
+     padding: 1.2rem;
+     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+     transition: transform 0.2s ease;
+   }
+   .device-card:hover {
+     transform: translateY(-4px);
+   }
+   .device-card h3 {
+     margin-top: 0;
+     color: #333;
+   }
+   .device-card p {
+     margin: 0.25rem 0;
+     color: #555;
+   }
+   .device-card button {
+     margin-top: 1rem;
+     padding: 0.5rem 1rem;
+     background-color: #4CAF50;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+   }
+   .device-card button:hover {
+     background-color: #45a049;
+   }
+ </style>
+</head>
+<body>
+<h1>Connected Devices</h1>
+<div id="deviceGrid" class="grid-container"></div>
+
+
+<script src="landing.js" type="module"></script>
+</body>
+</html>
