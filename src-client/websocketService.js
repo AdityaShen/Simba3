@@ -14,7 +14,11 @@ export function initializeWebSocket() {
         }
 		return;
 	}
-	globalState.ws = new WebSocket(`ws://${window.location.hostname}:8080`);
+
+    const currentPagePort = window.location.port;
+    const wsPort = currentPagePort === '8001' ? '8081' : '8080' ;
+    globalState.ws = new WebSocket(`ws://${window.location.hostname}:${wsPort}`);
+	// globalState.ws = new WebSocket(`ws://${window.location.hostname}:8080`);
 	globalState.ws.binaryType = 'arraybuffer';
 
 	globalState.ws.onopen = () => {

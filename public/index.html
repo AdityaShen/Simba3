@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simba</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body data-theme="dark">
     <header>
-        <h1>
-            <img src="lion.png" alt="Simba Logo" style="height: 70px; vertical-align: middle; margin-right: 0px;">
-            Simba
-        </h1>
-        <button id="themeToggle" class="theme-toggle" role="switch" aria-label="Toggle theme" aria-checked="true">
-            <span class="theme-toggle-knob"></span>
-        </button>
-    </header>
+  <div class="header-left">
+    <h1>
+      <img src="lion.png" alt="Simba Logo" style="height: 70px; vertical-align: middle; margin-right: 0px;">
+      Simba
+    </h1>
+  </div>
+
+  <div class="header-right">
+    <a href="index.html" class="home-icon" title="Go to Home">
+      <i class="fas fa-home"></i>
+    </a>
+    <button id="themeToggle" class="theme-toggle" role="switch" aria-label="Toggle theme" aria-checked="true">
+      <span class="theme-toggle-knob"></span>
+    </button>
+  </div>
+</header>
+
     <div class="app-container">
         <aside class="sidebar">
             <div class="controls">
@@ -23,7 +33,6 @@
                     <button id="startBtn" class="neon-button">Start Stream</button>
                     <button id="stopBtn" class="neon-button" disabled>Stop Stream</button>
                     <button id="fullscreenBtn" class="neon-button">Fullscreen</button>
-					<small>Double-click taskbar pin ▲/▼ to toggle fullscreen.</small>
                 </div>
             </div>
 			<div class="card connection-settings">
@@ -42,12 +51,12 @@
 				</div>
 			</div>
             <div class="card display-settings">
-                <!-- <h3>Decoder</h3> -->
-                <!-- <label for="decoderType">Decoder Type:</label> -->
+                <h3>Decoder</h3>
+                <label for="decoderType">Decoder Type:</label>
                 <select id="decoderType">
-					<option value="webcodecs"></option>
-                    <option value="mse" selected></option>
-                    <option value="broadway"></option>
+					<option value="webcodecs">WebCodecs</option>
+                    <option value="mse" selected>MSE</option>
+                    <option value="broadway">Broadway</option>
                 </select>
             </div>
             <div class="card display-settings">
@@ -74,13 +83,15 @@
                 <label for="dpi" id="dpiLabel">Pixel Density:</label>
                 <select id="dpi">
 				    <option value="reset"></option>
-                    <option value="160" selected></option>
-                    <option value="240"></option>
-                    <option value="320"></option>
-                    <option value="480"></option>
-                    <option value="640"></option>
+                    <option value="160" selected> 160 DPI</option>
+                    <option value="240"> 240 DPI</option>
+                    <option value="320"> 320 DPI</option>
+                    <option value="480">480 DPI</option>
+                    <option value="640"> 640 DPI</option>
                 </select>
                 <input type="number" id="customDpi" placeholder="Custom Value">
+                <small>Higher DPI creates sharper visuals but leads to higher CPU usage.</small>
+                <br>
                 <label for="maxFps">Frames Per Second:</label>
                 <select id="maxFps">
                     <option value="30">30 FPS</option>
@@ -88,13 +99,13 @@
                     <option value="120">120 FPS</option>
                     <option value="240">240 FPS</option>
                 </select>
-                <label for="rotationLock" id="rotationLockLabel">Device Orientation:</label>
-                <select id="rotationLock">
+                <label for="rotationLock" id="rotationLockLasbel">Device Orientation:</label>
+                 <select id="rotationLock"> 
                     <option value="0">Default (0°)</option>
                     <option value="90">Rotate Right (90°)</option>
                     <option value="180">Flip Upside Down (180°)</option>
                     <option value="270">Rotate Left (270°)</option>
-                </select>
+                </select> 
             </div>
             <div class="card performance-settings">
                 <h3>Performance</h3>
@@ -108,19 +119,19 @@
                 <small>Higher bitrate improves the quality but leads to higher badwidth usage.</small>
             </div>
             <div class="card display-config">
-                <!-- <h3>Display Mode</h3> -->
-                <!-- <label>Choose mode of Display:</label> -->
+                <h3>Display Mode</h3>
+                <label>Choose mode of Display:</label>
                 
                 <div class="checkbox-group display-mode-group">
                     <input type="checkbox" id="displayModeDefault" name="displayMode" value="default" checked>
-                    <!-- <label for="displayModeDefault">Default</label> -->
+                    <label for="displayModeDefault">Default</label>
                     <input type="checkbox" id="displayModeOverlay" name="displayMode" value="overlay">
-                    <!-- <label for="displayModeOverlay">Overlay</label> -->
+                    <label for="displayModeOverlay">Overlay</label>
                     <input type="checkbox" id="displayModeVirtual" name="displayMode" value="virtual">
-                    <!-- <label for="displayModeVirtual">Virtual Display</label> -->
+                    <label for="displayModeVirtual">Virtual Display</label>
                     <input type="checkbox" id="displayModeNative" name="displayMode" value="native_taskbar">
-                    <!-- <label for="displayModeNative">Native Taskbar</label> -->
-                    <input type="checkbox" id="displayModeDex" name="displayMode" value="dex">
+                    <label for="displayModeNative">Native Taskbar</label>
+                    <!-- <input type="checkbox" id="displayModeDex" name="displayMode" value="dex"> -->
                     <!-- <label for="displayModeDex">Samsung DeX</label> -->
                 </div>
             </div>
@@ -129,13 +140,13 @@
                 <label>Toggle features below:</label>
                 <div class="checkbox-group">
                     <input type="checkbox" id="noPowerOn">
-                    <!-- <label for="noPowerOn" id="noPowerOnLabel">No Power On</label> -->
+                    <label for="noPowerOn" id="noPowerOnLabel">No Power On</label>
                     <input type="checkbox" id="turnScreenOff">
                     <label for="turnScreenOff" id="turnScreenOffLabel">Screen Off On Start</label>
                     <input type="checkbox" id="powerOffOnClose">
-                    <!-- <label for="powerOffOnClose" id="powerOffOnCloseLabel">Power Off On Close</label> -->
+                    <label for="powerOffOnClose" id="powerOffOnCloseLabel">Power Off On Close</label>
                     <input type="checkbox" id="enableAudio">
-                    <!-- <label for="enableAudio" id="enableAudioLabel">Enable Audio</label>  -->
+                    <label for="enableAudio" id="enableAudioLabel">Enable Audio</label> 
                     <input type="checkbox" id="enableControl"checked>
                     <label for="enableControl" id="enableControlLabel">Enable Control</label>
                 </div>

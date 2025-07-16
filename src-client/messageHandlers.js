@@ -159,3 +159,6 @@ export function handleLaunchAppResponse(message) {
     else updateStatus(`App Launch Error: ${message.error}`);
     appendLog(`Launch app response: ${JSON.stringify(message)}`);
 }
+
+
+    

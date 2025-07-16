@@ -15,6 +15,19 @@ import { initHeaderControls } from './ui/headerControls.js';
 document.addEventListener('DOMContentLoaded', () => {
     initGlobalErrorHandling();
 
+    // 🔹 Extract deviceId from URL query param
+    const params = new URLSearchParams(window.location.search);
+    const deviceId = params.get('deviceId');
+
+    if (deviceId) {
+        globalState.selectedDeviceId = deviceId;
+        appendLog(`Selected device from URL: ${deviceId}`);
+    } else {
+        appendLog('No device ID found in URL. Redirecting to landing page...', true);
+        window.location.href = '/landing.html'; // ⬅ Redirect to landing page
+        return;
+    }
+
     initHeaderControls();
     initSidebarControls();
     initTaskbarControls();
