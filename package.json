@@ -6,7 +6,7 @@
     "start": "node src-server/server.js",
     "dev": "parcel public/index.html --dist-dir public/dev-dist --public-url /",
     "copy-broadway-files": "cpy node_modules/broadway-player/Player/Decoder.js public/dist/vendor/",
-    "build:parcel": "parcel build public/index.html public/landing.html --dist-dir public/dist --public-url ./",
+    "build:parcel": "parcel build public/index.html public/landing.html public/location-selector.html public/location-selector.js --dist-dir public/dist --public-url ./",
     "build": "npm-run-all clean build:parcel copy-broadway-files",
     "clean": "rimraf ./public/dist ./public/dev-dist ./.parcel-cache",
     "rebuild": "npm run build"

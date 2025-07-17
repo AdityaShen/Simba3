@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Select Lab Location</title>
+ <link rel="stylesheet" href="style.css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <style>
+   .location-selector {
+     text-align: center;
+     padding: 2rem;
+     color: white;
+   }
+
+   .location-selector h2 {
+  margin-top: 0;
+  color: var(--header-text);
+       font-size: 2.5rem;
+
+}
+
+   .carousel-container {
+  position: relative;
+  max-width: 800px; /* increased width */
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-width: 1000px;     /* consistent large size */
+  height: 500px;        /* fixed height for uniformity */
+  object-fit: cover;    /* ensures image fills box while keeping aspect */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+   }
+
+
+   .carousel-item:not(.disabled):hover {
+     transform: scale(1.02);
+     transition: transform 0.3s;
+     cursor: pointer;
+   }
+   .location-desc {
+     font-size: 0.9rem;
+  color: var(--panel-text-color);
+     margin-top: 0.5rem;
+   }
+
+
+   .carousel-dots {
+     margin-top: 1rem;
+     text-align: center;
+   }
+
+
+   .carousel-dots .dot {
+     height: 12px;
+     width: 12px;
+     margin: 0 6px;
+  background-color: var(--panel-text-color);
+     border-radius: 50%;
+     display: inline-block;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+
+
+   .carousel-dots .dot.active {
+  color: var(--panel-text-color);
+   }
+
+
+   .location-title {
+     margin-top: 1rem;
+     font-size: 1.2rem;
+       color: var(--header-text);
+
+   }
+
+
+   .carousel-buttons {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 1rem;
+     font-size: 2rem;
+  color: var(--panel-text-color);
+     cursor: pointer;
+   }
+
+
+   .disabled {
+     opacity: 0.5;
+     pointer-events: none;
+   }
+
+
+   .coming-soon {
+     margin-top: 0.5rem;
+     font-size: 0.9rem;
+     color: #ccc;
+   }
+
+
+   a.location-link {
+     text-decoration: none;
+     color: inherit;
+   }
+ </style>
+</head>
+<body data-theme="dark">
+<!-- Reusing existing header -->
+<header>
+ <div class="header-left">
+   <h1>
+     <img src="lion.png" alt="Simba Logo" style="height: 70px; vertical-align: middle; margin-right: 0px;" />
+     Simba
+   </h1>
+ </div>
+ <div class="header-right">
+   <a href="index.html" class="home-icon" title="Go to Home">
+     <i class="fas fa-home"></i>
+   </a>
+   <button id="themeToggle" class="theme-toggle" role="switch" aria-label="Toggle theme" aria-checked="true">
+     <span class="theme-toggle-knob"></span>
+   </button>
+ </div>
+</header>
+
+
+<main class="location-selector">
+ <h2>Choose Lab Location</h2>
+
+
+ <div class="carousel-container">
+   <div class="carousel-track" id="carouselTrack">
+     <!-- Clone of last slide -->
+     <div class="carousel-item disabled">
+       <img src="dublin.png" alt="Dublin">
+       <div class="location-title">Dublin</div>
+       <p class="location-desc">Coming Soon</p>
+     </div>
+
+
+     <!-- Original slides -->
+     <div class="carousel-item">
+       <a href="landing.html" class="location-link">
+         <img src="college_station.png" alt="College Station">
+         <div class="location-title">College Station</div>
+         <p class="location-desc">Available devices: 2</p>
+       </a>
+     </div>
+     <div class="carousel-item disabled">
+       <img src="singapore.png" alt="Singapore">
+       <div class="location-title">Singapore</div>
+       <p class="location-desc">Coming Soon</p>
+     </div>
+     <div class="carousel-item disabled">
+       <img src="dublin.png" alt="Dublin">
+       <div class="location-title">Dublin</div>
+       <p class="location-desc">Coming Soon</p>
+     </div>
+
+
+     <!-- Clone of first slide -->
+     <div class="carousel-item">
+       <a href="landing.html" class="location-link">
+         <img src="college_station.png" alt="College Station">
+         <div class="location-title">College Station</div>
+         <p class="location-desc">Available devices: 5<br>Last updated: 10 mins ago</p>
+       </a>
+     </div>
+   </div>
+
+
+   <!-- Arrow buttons -->
+   <div class="carousel-buttons">
+     <i class="fas fa-chevron-left" onclick="prevSlide()"></i>
+     <i class="fas fa-chevron-right" onclick="nextSlide()"></i>
+   </div>
+
+
+   <!-- Dots -->
+   <div class="carousel-dots" id="carouselDots">
+     <span class="dot active" onclick="goToSlide(1)"></span>
+     <span class="dot" onclick="goToSlide(2)"></span>
+     <span class="dot" onclick="goToSlide(3)"></span>
+   </div>
+ </div>
+
+
+</main>
+<script src="location-selector.js"></script>
+
+
+
+
+
+
+</body>
+</html>

@@ -90,42 +90,43 @@ button, input, select, label {
 
 
 [data-theme="light"] {
-    --bg-color: #ffffff; /* White background */
-    --text-color: #2e2e2e; /* Dark gray text */
-    --header-bg: #fff3e0; /* Light orange background */
-    --header-text: #e65100; /* Deep orange text */
-    --control-bg: #ffe0b2; /* Soft orange */
-    --input-bg: #fff8f0; /* Very light orange */
-    --button-bg: #ff9800; /* Orange */
-    --button-text: #ffffff; 
-    --button-hover: #fb8c00; 
-    --placeholder-bg: #ffe0b2;
-    --video-bg: #ffffff;
-    --taskbar-bg-color: rgba(255, 224, 178, 0.9);
-    --taskbar-button-hover-bg: rgba(0, 0, 0, 0.05);
+    --bg-color: #ffe5b4; /* Light mandarin orange */
+    --text-color: #2e2e2e;
+    --header-bg: #ee8c13; /* Rich mandarin orange */
+    --header-text: black; /* Dark brown for contrast */
+    --control-bg: #ffb74d;
+    --input-bg: #ffcc80;
+    --button-bg: #e65100;
+    --button-text: #ffffff;
+    --button-hover: #bf360c;
+    --placeholder-bg: #ffcc80;
+    --video-bg: #ffe5b4;
+    --taskbar-bg-color: rgba(255, 204, 128, 0.9);
+    --taskbar-button-hover-bg: rgba(0, 0, 0, 0.07);
     --taskbar-icon-color: #2e2e2e;
-    --panel-bg-color: #fff3e0;
+    --panel-bg-color: #ffcc80;
     --panel-text-color: #2e2e2e;
-    --panel-secondary-text-color: #6d4c41;
-    --panel-icon-bg-inactive: #ffe0b2;
-    --panel-icon-color-inactive: #6d4c41;
-    --panel-icon-bg-active: #ff9800;
+    --panel-secondary-text-color: #4e342e;
+    --panel-icon-bg-inactive: #ffb74d;
+    --panel-icon-color-inactive: #4e342e;
+    --panel-icon-bg-active: #e65100;
     --panel-icon-color-active: #ffffff;
-    --slider-track-color: #ffe0b2;
-    --slider-track-active-color: #ff9800;
-    --slider-thumb-color: #ff9800;
+    --slider-track-color: #ffb74d;
+    --slider-track-active-color: #e65100;
+    --slider-thumb-color: #e65100;
     --app-drawer-text-color: #2e2e2e;
-    --app-drawer-icon-bg: #ffe0b2;
-    --theme-toggle-bg: linear-gradient(180deg, #fff3e0 0%, #ffe0b2 100%);
-    --theme-toggle-knob-color: #ff9800;
-    --theme-toggle-border-color: #ffcc80;
-    --checkbox-bg-active: #ff9800;
-    --checkbox-border-active: #fb8c00;
+    --app-drawer-icon-bg: #ffb74d;
+    --theme-toggle-bg: linear-gradient(180deg, #ffcc80 0%, #ffb74d 100%);
+    --theme-toggle-knob-color: #e65100;
+    --theme-toggle-border-color: #ff9800;
+    --checkbox-bg-active: #e65100;
+    --checkbox-border-active: #bf360c;
     --checkbox-text-active: #ffffff;
-    --rotate-button-bg: #ff9800;
-    --rotate-button-hover-bg: #fb8c00;
-    --label-disabled-color: #a1887f;
+    --rotate-button-bg: #e65100;
+    --rotate-button-hover-bg: #bf360c;
+    --label-disabled-color: #8d6e63;
 }
+
 
 
 
@@ -163,17 +164,6 @@ header {
   gap: 1rem;
 }
 
-.home-icon {
-  font-size: 1.6rem;
-  color: #ff9800;
-  text-decoration: none;
-  transition: transform 0.2s ease, color 0.3s ease;
-}
-
-.home-icon:hover {
-  transform: scale(1.2);
-  color: #ffa733;
-}
 
 
 
@@ -643,7 +633,7 @@ header h1 {
   top: 1rem;
   right: 1rem;
   font-size: 1.8rem;
-  color: #ff9800; /* Orangish neon */
+  color: #ffd18d; /* Orangish neon */
   text-decoration: none;
   z-index: 1000;
   transition: transform 0.2s ease, color 0.3s ease;
@@ -651,7 +641,7 @@ header h1 {
 
 .home-icon:hover {
   transform: scale(1.2);
-  color: #ffa733;
+  color: #ffd18d;
 }
 
 
@@ -2328,12 +2318,46 @@ display: grid;
 
 
 
-
-
-
-
-
 .main-contentt {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  color: white; /* or adjust based on your theme */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 100%;
+}
+
+/* Blurred background using ::before */
+.main-contentt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('college_station.png') no-repeat center center / cover;
+  filter: blur(8px);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.main-contentt::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+
+
+
+
+/* .main-contentt {
  
 display: flex;
   flex-direction: column;
@@ -2342,7 +2366,7 @@ display: flex;
   padding: 2rem;
   max-width: 100%;
 
-}
+} */
 
 .grid-header {
  

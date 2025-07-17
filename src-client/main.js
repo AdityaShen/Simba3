@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendLog(`Selected device from URL: ${deviceId}`);
     } else {
         appendLog('No device ID found in URL. Redirecting to landing page...', true);
-        window.location.href = '/landing.html'; // ⬅ Redirect to landing page
+        window.location.href = '/location-selector.html'; // ⬅ Redirect to landing page
         return;
     }
 

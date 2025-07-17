@@ -21,7 +21,7 @@ async function start() {
 
 		// Serve static files
 		app.use(express.static(path.resolve(__dirname, '../public/dist')));
-		app.use('/landing.html', express.static(path.resolve(__dirname, '../public/landing.html')));
+		app.use('/location-selector.html', express.static(path.resolve(__dirname, '../public/location-selector.html')));
 
 
 		const { Readable } = require('stream');
