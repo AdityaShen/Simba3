@@ -16,6 +16,7 @@
   "dependencies": {
     "@devicefarmer/adbkit": "^3.3.8",
     "broadway-player": "^0.1.1",
+    "cors": "^2.8.5",
     "cpy-cli": "^5.0.0",
     "express": "^5.1.0",
     "h264-converter": "^0.1.4",

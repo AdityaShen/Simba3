@@ -16,10 +16,11 @@ export function initializeWebSocket() {
 	}
 
     const currentPagePort = window.location.port;
-    const wsPort = currentPagePort === '8001' ? '8081' : '8080' ;
-    globalState.ws = new WebSocket(`ws://${window.location.hostname}:${wsPort}`);
-	// globalState.ws = new WebSocket(`ws://${window.location.hostname}:8080`);
-	globalState.ws.binaryType = 'arraybuffer';
+  // Replace with your actual GCP VM IP address
+  const GCP_VM_IP = '34.102.71.124'; // <-- Your external IP
+  globalState.ws = new WebSocket(`ws://${GCP_VM_IP}:8081`);
+
+  globalState.ws.binaryType = 'arraybuffer';
 
 	globalState.ws.onopen = () => {
 		appendLog('WebSocket connection established.');

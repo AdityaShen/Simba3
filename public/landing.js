@@ -21,7 +21,7 @@ function initThemeToggle() {
 async function loadDevices() {
   const grid = document.getElementById('deviceGrid');
   try {
-    const res = await fetch('/list-devices');
+    const res = await fetch('http://34.102.71.124:8001/list-devices');
     const data = await res.json();
     if (!data.success) throw new Error(data.message);
 

@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+
 const C = require('./constants');
 const { log } = require('./logger');
 const adbService = require('./adbService'); // ✅ Correct single import
@@ -17,6 +19,7 @@ async function start() {
 		mainWss = createWebSocketServer();
 
 		const app = express();
+		app.use(cors());
 		app.use(express.json());
 
 		// Serve static files
